@@ -1,65 +1,65 @@
 <!DOCTYPE html>
-<html lang = "ja">
+<html lang="ja">
   <head>
     <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
     <link rel="stylesheet" href="base.css">
   </head>
-
+  
   <body>
-    <div class = "container">
-      <h class = "title">最強の三目並べAI</h>
-      <div class = "grid">
-        <div class = "cell">
-          <span id = "pos0-x" class = "batu hidden">X</span>
-          <span id = "pos0-o" class = "maru hidden">O</span>
-          <button id = "pos0-button" pys-onclick= "lambda e: cell_click(0)"></button>
+    <div class="container">
+      <h class="title">最強の三目並べAI</h>
+      <div class="grid">
+        <div class="cell">
+          <span id="pos0-x" class="batu hidden">X</span>
+          <span id="pos0-o" class="maru hidden">O</span>
+          <button id="pos0-button" pys-onclick="lambda e: cell_click(0)"></button>
         </div>
-        <div class = "cell">
-          <span id = "pos1-x" class = "batu hidden">X</span>
-          <span id = "pos1-o" class = "maru hidden">O</span>
-          <button id = "pos1-button" pys-onclick= "lambda e: cell_click(1)"></button>
+        <div class="cell">
+          <span id="pos1-x" class="batu hidden">X</span>
+          <span id="pos1-o" class="maru hidden">O</span>
+          <button id="pos1-button" pys-onclick="lambda e: cell_click(1)"></button>
         </div>
-        <div class = "cell">
-          <span id = "pos2-x" class = "batu hidden">X</span>
-          <span id = "pos2-o" class = "maru hidden">O</span>
-          <button id = "pos2-button" pys-onclick= "lambda e: cell_click(2)"></button>
+        <div class="cell">
+          <span id="pos2-x" class="batu hidden">X</span>
+          <span id="pos2-o" class="maru hidden">O</span>
+          <button id="pos2-button" pys-onclick="lambda e: cell_click(2)"></button>
         </div>
-        <div class = "cell">
-          <span id = "pos3-x" class = "batu hidden">X</span>
-          <span id = "pos3-o" class = "maru hidden">O</span>
-          <button id = "pos3-button" pys-onclick= "lambda e: cell_click(3)"></button>
+        <div class="cell">
+          <span id="pos3-x" class="batu hidden">X</span>
+          <span id="pos3-o" class="maru hidden">O</span>
+          <button id="pos3-button" pys-onclick="lambda e: cell_click(3)"></button>
         </div>
-        <div class = "cell">
-          <span id = "pos4-x" class = "batu hidden">X</span>
-          <span id = "pos4-o" class = "maru hidden">O</span>
-          <button id = "pos4-button" pys-onclick= "lambda e: cell_click(4)"></button>
+        <div class="cell">
+          <span id="pos4-x" class="batu hidden">X</span>
+          <span id="pos4-o" class="maru hidden">O</span>
+          <button id="pos4-button" pys-onclick="lambda e: cell_click(4)"></button>
         </div>
-        <div class = "cell">
-          <span id = "pos5-x" class = "batu hidden">X</span>
-          <span id = "pos5-o" class = "maru hidden">O</span>
-          <button id = "pos5-button" pys-onclick= "lambda e: cell_click(5)"></button>
+        <div class="cell">
+          <span id="pos5-x" class="batu hidden">X</span>
+          <span id="pos5-o" class="maru hidden">O</span>
+          <button id="pos5-button" pys-onclick="lambda e: cell_click(5)"></button>
         </div>
-        <div class = "cell">
-          <span id = "pos6-x" class = "batu hidden">X</span>
-          <span id = "pos6-o" class = "maru hidden">O</span>
-          <button id = "pos6-button" pys-onclick= "lambda e: cell_click(6)"></button>
+        <div class="cell">
+          <span id="pos6-x" class="batu hidden">X</span>
+          <span id="pos6-o" class="maru hidden">O</span>
+          <button id="pos6-button" pys-onclick="lambda e: cell_click(6)"></button>
         </div>
-        <div class = "cell">
-          <span id = "pos7-x" class = "batu hidden">X</span>
-          <span id = "pos7-o" class = "maru hidden">O</span>
-          <button id = "pos7-button" pys-onclick= "lambda e: cell_click(7)"></button>
+        <div class="cell">
+          <span id="pos7-x" class="batu hidden">X</span>
+          <span id="pos7-o" class="maru hidden">O</span>
+          <button id="pos7-button" pys-onclick="lambda e: cell_click(7)"></button>
         </div>
-        <div class = "cell">
-          <span id = "pos8-x" class = "batu hidden">X</span>
-          <span id = "pos8-o" class = "maru hidden">O</span>
-          <button id = "pos8-button" pys-onclick= "lambda e: cell_click(8)"></button>
+        <div class="cell">
+          <span id="pos8-x" class="batu hidden">X</span>
+          <span id="pos8-o" class="maru hidden">O</span>
+          <button id="pos8-button"  pys-onclick="lambda e: cell_click(8)"></button>
         </div>
       </div>
-
-      <h3 id = "message"></h3>
-      <button id = "reset-button" class = "hidden" pys-onclick = "lambda e: reset()">Retry</button>
-    </div>   
+      
+      <h3 id="message"></h3>
+      <button id="reset-button" class="hidden" pys-onclick="lambda e: reset()">もう一度</button>
+    </div>
 <py-script>
 MARKS = {0: 'X', 1: 'O'}
 
