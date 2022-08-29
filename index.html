@@ -75,6 +75,7 @@ def update_cells(state):
 def display_message(value):
     Element("message").write(value)
 
+
 class Board:
     def __init__(self):
         self.state = [None] * 9
@@ -87,17 +88,16 @@ class Board:
 3|4|5
 -----
 6|7|8
------
-"""     
-        for idx,x in enumerate(self.state):
+"""
+        for idx, x in enumerate(self.state):
             if x is not None:
-                text = text.replace(str(idx), MARKS[x]) #4 -> X
-
+                text = text.replace(str(idx), MARKS[x])  # 4 -> X
         print(text)
 
     def move(self, idx):
         if self.state[idx] is not None:
             return False
+
         player = self.counter % 2
         self.state[idx] = player
         self.counter += 1
@@ -106,8 +106,8 @@ class Board:
     def unmove(self, idx):
         self.counter -= 1
         self.state[idx] = None
-
-    def is_win(self,player):
+    
+    def is_win(self, player):
         s = self.state
         return(
             s[0] == s[1] == s[2] == player or
@@ -117,11 +117,11 @@ class Board:
             s[1] == s[4] == s[7] == player or
             s[2] == s[5] == s[8] == player or
             s[0] == s[4] == s[8] == player or
-            s[2] == s[4] == s[6] == player      
+            s[2] == s[4] == s[6] == player
         )
 
     def is_end(self):
-        return not(None in self.state)
+        return not( None in self.state)
 
     def valid_moves(self):
         moves = []
@@ -134,7 +134,6 @@ class Board:
 def minimax(board, player):
     maximize_player = 0
     minimize_player = 1
-
 
     if board.is_win(maximize_player):
         return (1, None)
@@ -156,9 +155,8 @@ def minimax(board, player):
                 max_score = score
                 max_idx = idx
             board.unmove(idx)
-
+        
         return (max_score, max_idx)
-
     else:
         min_score = float('inf')
         min_idx = None
@@ -170,17 +168,19 @@ def minimax(board, player):
                 min_score = score
                 min_idx = idx
             board.unmove(idx)
-
+        
         return (min_score, min_idx)
-
+        
+        
 class BestPlayer:
-    def __init__(self,player):
+    def __init__(self, player):
         self.player = player
-
+    
     def play(self, board):
         score, idx = minimax(board, self.player)
         board.move(idx)
         return idx
+
 
 class GameManager:
     def __init__(self):
@@ -202,7 +202,7 @@ class GameManager:
     def resume(self):
         self.game_running = True
 
-    def human_play(self,idx):
+    def human_play(self, idx):
         if not self.game_running:
             return
 
@@ -213,7 +213,7 @@ class GameManager:
             display_message("You Win")
             self.game_running = False
             Element("reset-button").remove_class("hidden")
-            return
+            return 
         elif self.board.is_end():
             display_message("Draw")
             self.game_running = False
@@ -221,28 +221,27 @@ class GameManager:
             return
 
         # AI Turn
-        display_message("AI is Thinking...")
+        display_message("AI Turn")
         ai_idx = self.best_player.play(self.board)
         update_cells(self.board.state)
-
 
         if self.board.is_win(1):
             display_message("AI Win")
             self.game_running = False
-            Element("reset-button").remove_class("hidden")
-            return
+            Element("reset-button").remove_class("hidden")  
+            return 
 
         display_message("Your Turn")
 
 
-
-
-game_manager = GameManager() 
+game_manager = GameManager()
 
 def reset():
-      game_manager.start()
+    game_manager.start()
+  
 def cell_click(idx):
-      game_manager.human_play(idx)
+    game_manager.human_play(idx)
+
 </py-script>
   </body>
 </html>
