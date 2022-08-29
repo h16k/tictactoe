@@ -60,7 +60,7 @@
           <h3 id = "message"></h3>
           <button id = "reset-button" class = "hidden" pys-onclick = "lambda e:reset()">Retry</button>
         </div>   
-        <py-script>
+  <py-script>
     MARKS = {0: 'X', 1: 'O'}
     def update_cells(state):
         for i, value in enumerate(state):
@@ -242,6 +242,6 @@
           game_manager.start()
     def cell_click(idx):
           game_manager.human_play(idx)
-        </py-script>
+</py-script>
       </body>
     </html>
