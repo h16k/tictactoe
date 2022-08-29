@@ -1,2 +1,3 @@
 # tictactoe
-https://h16k.github.io/tictactoe/index.htmlからプレイできます
+https://h16k.github.io/tictactoe/index.html
+からプレイできます
